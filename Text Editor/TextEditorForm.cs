@@ -24,7 +24,8 @@ namespace Text_Editor
         #region fields
         int fontSize = 8;
         string fontName = "MS Sans Serif";
-        
+        string dataPath = Application.StartupPath + "\\data.ini";
+
         #endregion
 
         #region methodes
@@ -91,8 +92,57 @@ namespace Text_Editor
             ChangeFont();
         }
 
+
         #endregion
+        #region events
+        private void TextEditorForm_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                StreamReader file = new StreamReader(dataPath);
 
+                menuBold.Checked = Convert.ToBoolean(file.ReadLine());
+                menuUnderline.Checked = Convert.ToBoolean(file.ReadLine());
+                menuItalic.Checked = Convert.ToBoolean(file.ReadLine());
+                int size = Convert.ToInt32(file.ReadLine());
+                switch (size)
+                {
+                    case 1:
+                        menuSizeSmall.PerformClick();
+                        break;
+                    case 2:
+                        menuSizeMedium.PerformClick();
+                        break;
+                    case 3:
+                        menuSizeLarge.PerformClick();
+                        break;
 
+                }
+                file.Close();
+                ChangeFont();
+            }
+            catch
+            {
+                MessageBox.Show("Could not load the data! We will fix this for you!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                FileStream file = File.Create(dataPath);
+            }
+        }
+
+        private void OnClosing(object sender, FormClosingEventArgs e)
+        {
+            StreamWriter file = new StreamWriter(dataPath);
+            file.WriteLine(menuBold.Checked.ToString());
+            file.WriteLine(menuUnderline.Checked.ToString());
+            file.WriteLine(menuItalic.Checked.ToString());
+            int i;
+            if (menuSizeSmall.Checked) i = 1;
+            else if (menuSizeMedium.Checked) i = 2;
+            else i = 3;
+            file.WriteLine(i.ToString());
+            file.Close();
+            
+
+        }
+        #endregion 
     }
 }
