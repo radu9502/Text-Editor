@@ -24,7 +24,7 @@ namespace Text_Editor
         #region fields
         int fontSize = 8;
         string fontName = "MS Sans Serif";
-        FontStyle newFont = FontStyle.Regular;
+        
         #endregion
 
         #region methodes
@@ -35,7 +35,7 @@ namespace Text_Editor
         }
         public void ChangeFont()
         {
-       
+            FontStyle newFont = FontStyle.Regular;
             if (menuBold.Checked)
             {
                newFont = newFont | FontStyle.Bold;
@@ -52,27 +52,7 @@ namespace Text_Editor
            
             textBox.Font = new Font(fontName, fontSize, newFont);
         }
-        public void ChangeSize()
-        {
-            if (menuSizeSmall.Checked)
-            {
-                fontSize = 8;
-            }
-            if (menuSizeMedium.Checked)
-            {
-                fontSize = 12;
-                menuSizeSmall.Checked = false;
-                menuSizeLarge.Checked = false;
-            }
-            if (menuSizeLarge.Checked)
-            {
-                fontSize = 16;
-                menuSizeMedium.Checked = false;
-                menuSizeSmall.Checked = false;
-            }
-            textBox.Font = new Font(fontName, fontSize, newFont);
-
-        }
+       
         #endregion
 
         #region onClickEvents
@@ -86,42 +66,7 @@ namespace Text_Editor
             ChangeFont();
         }
 
-        private void menuSizeSmall_Click(object sender, EventArgs e)
-        {   
-            if(!menuSizeSmall.Checked) menuSizeSmall.Checked = true;
-            else
-            {
-
-                menuSizeMedium.Checked = false;
-                menuSizeLarge.Checked = false;
-                ChangeSize();
-            }
-            
-        }
-   
-        private void menuSizeMedium_Click(object sender, EventArgs e)
-        {
-            if (!menuSizeMedium.Checked) menuSizeMedium.Checked = true;
-            else
-            {
-
-                menuSizeSmall.Checked = false;
-                menuSizeLarge.Checked = false;
-                ChangeSize();
-            }
-        }
-
-        private void menuSizeLarge_Click(object sender, EventArgs e)
-        {
-            if (!menuSizeLarge.Checked) menuSizeLarge.Checked = true;
-            else
-            {
-
-                menuSizeSmall.Checked = false;
-                menuSizeMedium.Checked = false;
-                ChangeSize();
-            }
-        }
+      
         private void menuNew_Click(object sender, EventArgs e)
         {
             if(MessageBox.Show("Are you sure you want to start a new file?", "New File", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -129,9 +74,6 @@ namespace Text_Editor
                 ClearText();
             }
         }
-
-        #endregion
-
         private void menuExit_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are you sure you want to exit the application?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -139,5 +81,24 @@ namespace Text_Editor
                 Close();
             }
         }
+
+        private void OnSizeChnage(object sender, EventArgs e)
+        {
+            ToolStripMenuItem checkedSize = (ToolStripMenuItem)sender;
+            menuSizeSmall.Checked = false;
+            menuSizeMedium.Checked = false;
+            menuSizeLarge.Checked = false;
+            checkedSize.Checked = true;
+            if (checkedSize == menuSizeSmall) fontSize = 8;
+            if (checkedSize == menuSizeMedium) fontSize = 12;
+            if (checkedSize == menuSizeLarge) fontSize = 16;
+            ChangeFont();
+
+
+        }
+
+        #endregion
+
+
     }
 }

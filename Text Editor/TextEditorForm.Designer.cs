@@ -101,7 +101,7 @@
             // 
             this.menuBold.CheckOnClick = true;
             this.menuBold.Name = "menuBold";
-            this.menuBold.Size = new System.Drawing.Size(125, 22);
+            this.menuBold.Size = new System.Drawing.Size(180, 22);
             this.menuBold.Text = "&Bold";
             this.menuBold.Click += new System.EventHandler(this.menuBold_Click);
             // 
@@ -109,7 +109,7 @@
             // 
             this.menuItalic.CheckOnClick = true;
             this.menuItalic.Name = "menuItalic";
-            this.menuItalic.Size = new System.Drawing.Size(125, 22);
+            this.menuItalic.Size = new System.Drawing.Size(180, 22);
             this.menuItalic.Text = "&Italic";
             this.menuItalic.Click += new System.EventHandler(this.menuItalic_Click);
             // 
@@ -117,7 +117,7 @@
             // 
             this.menuUnderline.CheckOnClick = true;
             this.menuUnderline.Name = "menuUnderline";
-            this.menuUnderline.Size = new System.Drawing.Size(125, 22);
+            this.menuUnderline.Size = new System.Drawing.Size(180, 22);
             this.menuUnderline.Text = "&Underline";
             // 
             // sizeToolStripMenuItem
@@ -127,7 +127,7 @@
             this.menuSizeMedium,
             this.menuSizeLarge});
             this.sizeToolStripMenuItem.Name = "sizeToolStripMenuItem";
-            this.sizeToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.sizeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sizeToolStripMenuItem.Text = "&Size";
             // 
             // menuSizeSmall
@@ -136,25 +136,25 @@
             this.menuSizeSmall.CheckOnClick = true;
             this.menuSizeSmall.CheckState = System.Windows.Forms.CheckState.Checked;
             this.menuSizeSmall.Name = "menuSizeSmall";
-            this.menuSizeSmall.Size = new System.Drawing.Size(119, 22);
+            this.menuSizeSmall.Size = new System.Drawing.Size(180, 22);
             this.menuSizeSmall.Text = "&Small";
-            this.menuSizeSmall.Click += new System.EventHandler(this.menuSizeSmall_Click);
+            this.menuSizeSmall.Click += new System.EventHandler(this.OnSizeChnage);
             // 
             // menuSizeMedium
             // 
             this.menuSizeMedium.CheckOnClick = true;
             this.menuSizeMedium.Name = "menuSizeMedium";
-            this.menuSizeMedium.Size = new System.Drawing.Size(119, 22);
+            this.menuSizeMedium.Size = new System.Drawing.Size(180, 22);
             this.menuSizeMedium.Text = "&Medium";
-            this.menuSizeMedium.Click += new System.EventHandler(this.menuSizeMedium_Click);
+            this.menuSizeMedium.Click += new System.EventHandler(this.OnSizeChnage);
             // 
             // menuSizeLarge
             // 
             this.menuSizeLarge.CheckOnClick = true;
             this.menuSizeLarge.Name = "menuSizeLarge";
-            this.menuSizeLarge.Size = new System.Drawing.Size(119, 22);
+            this.menuSizeLarge.Size = new System.Drawing.Size(180, 22);
             this.menuSizeLarge.Text = "&Large";
-            this.menuSizeLarge.Click += new System.EventHandler(this.menuSizeLarge_Click);
+            this.menuSizeLarge.Click += new System.EventHandler(this.OnSizeChnage);
             // 
             // TextEditorForm
             // 
