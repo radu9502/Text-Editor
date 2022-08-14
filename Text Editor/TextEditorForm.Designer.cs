@@ -1,6 +1,6 @@
 ﻿namespace Text_Editor
 {
-    partial class TextEditorForm
+    partial class textEditorForm
     {
         /// <summary>
         /// Required designer variable.
@@ -54,6 +54,7 @@
             this.textBox.Location = new System.Drawing.Point(12, 33);
             this.textBox.Multiline = true;
             this.textBox.Name = "textBox";
+            this.textBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBox.Size = new System.Drawing.Size(762, 363);
             this.textBox.TabIndex = 0;
             // 
@@ -83,35 +84,35 @@
             // menuNew
             // 
             this.menuNew.Name = "menuNew";
-            this.menuNew.Size = new System.Drawing.Size(180, 22);
+            this.menuNew.Size = new System.Drawing.Size(123, 22);
             this.menuNew.Text = "&New";
             this.menuNew.Click += new System.EventHandler(this.menuNew_Click);
             // 
             // open
             // 
             this.open.Name = "open";
-            this.open.Size = new System.Drawing.Size(180, 22);
+            this.open.Size = new System.Drawing.Size(123, 22);
             this.open.Text = "&Open...";
             this.open.Click += new System.EventHandler(this.Open_Click);
             // 
             // save
             // 
             this.save.Name = "save";
-            this.save.Size = new System.Drawing.Size(180, 22);
+            this.save.Size = new System.Drawing.Size(123, 22);
             this.save.Text = "&Save";
             this.save.Click += new System.EventHandler(this.save_Click);
             // 
             // saveAs
             // 
             this.saveAs.Name = "saveAs";
-            this.saveAs.Size = new System.Drawing.Size(180, 22);
+            this.saveAs.Size = new System.Drawing.Size(123, 22);
             this.saveAs.Text = "&Save As...";
             this.saveAs.Click += new System.EventHandler(this.saveAs_Click);
             // 
             // menuExit
             // 
             this.menuExit.Name = "menuExit";
-            this.menuExit.Size = new System.Drawing.Size(180, 22);
+            this.menuExit.Size = new System.Drawing.Size(123, 22);
             this.menuExit.Text = "&Exit";
             this.menuExit.Click += new System.EventHandler(this.menuExit_Click);
             // 
@@ -196,7 +197,7 @@
             this.saveAsFile.FileName = "saveAsFile";
             this.saveAsFile.Filter = "Text Files (*.txt)|*.txt";
             // 
-            // TextEditorForm
+            // textEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -204,10 +205,11 @@
             this.Controls.Add(this.textBox);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "TextEditorForm";
+            this.Name = "textEditorForm";
             this.Text = "Text Editor";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OnClosing);
             this.Load += new System.EventHandler(this.TextEditorForm_Load);
+            this.SizeChanged += new System.EventHandler(this.OnFormSizeChanged);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

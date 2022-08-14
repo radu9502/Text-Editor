@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Text_Editor
 {
-    public partial class TextEditorForm : Form
+    public partial class textEditorForm : Form
     {
-        public TextEditorForm()
+        public textEditorForm()
         {
             InitializeComponent();
         }
@@ -137,6 +137,7 @@ namespace Text_Editor
         #region events
         private void TextEditorForm_Load(object sender, EventArgs e)
         {
+            OnFormSizeChanged(sender, e);
             try
             {
                 StreamReader file = new StreamReader(dataPath);
@@ -185,6 +186,12 @@ namespace Text_Editor
         }
 
         #endregion
+       
 
+        private void OnFormSizeChanged(object sender, EventArgs e)
+        {
+            textBox.Width = this.Width - 40;
+            textBox.Height = this.Height - 80;
+        }
     }
 }
