@@ -103,7 +103,7 @@
             this.menuBold.Name = "menuBold";
             this.menuBold.Size = new System.Drawing.Size(180, 22);
             this.menuBold.Text = "&Bold";
-            this.menuBold.Click += new System.EventHandler(this.menuBold_Click);
+            this.menuBold.Click += new System.EventHandler(this.OnChangeStyle);
             // 
             // menuItalic
             // 
@@ -111,7 +111,7 @@
             this.menuItalic.Name = "menuItalic";
             this.menuItalic.Size = new System.Drawing.Size(180, 22);
             this.menuItalic.Text = "&Italic";
-            this.menuItalic.Click += new System.EventHandler(this.menuItalic_Click);
+            this.menuItalic.Click += new System.EventHandler(this.OnChangeStyle);
             // 
             // menuUnderline
             // 
@@ -119,6 +119,7 @@
             this.menuUnderline.Name = "menuUnderline";
             this.menuUnderline.Size = new System.Drawing.Size(180, 22);
             this.menuUnderline.Text = "&Underline";
+            this.menuUnderline.Click += new System.EventHandler(this.OnChangeStyle);
             // 
             // sizeToolStripMenuItem
             // 

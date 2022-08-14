@@ -56,17 +56,7 @@ namespace Text_Editor
         #endregion
 
         #region onClickEvents
-        private void menuBold_Click(object sender, EventArgs e)
-        {
-            ChangeFont();
-        }
 
-        private void menuItalic_Click(object sender, EventArgs e)
-        {
-            ChangeFont();
-        }
-
-      
         private void menuNew_Click(object sender, EventArgs e)
         {
             if(MessageBox.Show("Are you sure you want to start a new file?", "New File", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -95,6 +85,10 @@ namespace Text_Editor
             ChangeFont();
 
 
+        }
+        private void OnChangeStyle(object sender, EventArgs e)
+        {
+            ChangeFont();
         }
 
         #endregion
