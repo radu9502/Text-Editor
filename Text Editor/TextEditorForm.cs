@@ -25,6 +25,7 @@ namespace Text_Editor
         int fontSize = 8;
         string fontName = "MS Sans Serif";
         string dataPath = Application.StartupPath + "\\data.ini";
+        string currentFile = string.Empty;
 
         #endregion
 
@@ -58,19 +59,23 @@ namespace Text_Editor
 
         #region onClickEvents
 
+
         private void menuNew_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("Are you sure you want to start a new file?", "New File", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if(MessageBox.Show("Do you want to save the current file?", "Save file", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                ClearText();
+                save_Click(sender, e);
             }
+            currentFile = string.Empty;
+            ClearText();
         }
         private void menuExit_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to exit the application?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Do you want to save the current file?", "Save file", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                Close();
+                save_Click( sender,  e);
             }
+            Close();
         }
 
         private void OnSizeChnage(object sender, EventArgs e)
@@ -90,6 +95,41 @@ namespace Text_Editor
         private void OnChangeStyle(object sender, EventArgs e)
         {
             ChangeFont();
+        }
+
+        private void Open_Click(object sender, EventArgs e)
+        {
+            if (openFile.ShowDialog() == DialogResult.OK)
+            {
+                StreamReader file = new StreamReader(openFile.FileName);
+                textBox.Text = file.ReadToEnd();
+                currentFile = openFile.FileName;
+                file.Close();
+            }
+        }
+
+        private void saveAs_Click(object sender, EventArgs e)
+        {
+            if (saveAsFile.ShowDialog() == DialogResult.OK)
+            {
+                StreamWriter file = new StreamWriter(saveAsFile.FileName);
+                file.Write(textBox.Text);
+                currentFile = saveAsFile.FileName;
+                file.Close();
+            }
+
+        }
+
+        private void save_Click(object sender, EventArgs e)
+        {
+            if (currentFile == string.Empty) saveAs_Click(sender, e);
+            else
+            {
+                StreamWriter file = new StreamWriter(currentFile);
+                file.Write(textBox.Text);
+                file.Close();
+
+            }
         }
 
 
@@ -143,6 +183,8 @@ namespace Text_Editor
             
 
         }
-        #endregion 
+
+        #endregion
+
     }
 }

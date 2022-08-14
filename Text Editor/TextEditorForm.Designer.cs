@@ -32,6 +32,9 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuNew = new System.Windows.Forms.ToolStripMenuItem();
+            this.open = new System.Windows.Forms.ToolStripMenuItem();
+            this.save = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveAs = new System.Windows.Forms.ToolStripMenuItem();
             this.menuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.formatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuBold = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,6 +44,8 @@
             this.menuSizeSmall = new System.Windows.Forms.ToolStripMenuItem();
             this.menuSizeMedium = new System.Windows.Forms.ToolStripMenuItem();
             this.menuSizeLarge = new System.Windows.Forms.ToolStripMenuItem();
+            this.openFile = new System.Windows.Forms.OpenFileDialog();
+            this.saveAsFile = new System.Windows.Forms.SaveFileDialog();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,7 +54,7 @@
             this.textBox.Location = new System.Drawing.Point(12, 33);
             this.textBox.Multiline = true;
             this.textBox.Name = "textBox";
-            this.textBox.Size = new System.Drawing.Size(762, 405);
+            this.textBox.Size = new System.Drawing.Size(762, 363);
             this.textBox.TabIndex = 0;
             // 
             // menuStrip1
@@ -67,6 +72,9 @@
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuNew,
+            this.open,
+            this.save,
+            this.saveAs,
             this.menuExit});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
@@ -75,14 +83,35 @@
             // menuNew
             // 
             this.menuNew.Name = "menuNew";
-            this.menuNew.Size = new System.Drawing.Size(98, 22);
+            this.menuNew.Size = new System.Drawing.Size(180, 22);
             this.menuNew.Text = "&New";
             this.menuNew.Click += new System.EventHandler(this.menuNew_Click);
+            // 
+            // open
+            // 
+            this.open.Name = "open";
+            this.open.Size = new System.Drawing.Size(180, 22);
+            this.open.Text = "&Open...";
+            this.open.Click += new System.EventHandler(this.Open_Click);
+            // 
+            // save
+            // 
+            this.save.Name = "save";
+            this.save.Size = new System.Drawing.Size(180, 22);
+            this.save.Text = "&Save";
+            this.save.Click += new System.EventHandler(this.save_Click);
+            // 
+            // saveAs
+            // 
+            this.saveAs.Name = "saveAs";
+            this.saveAs.Size = new System.Drawing.Size(180, 22);
+            this.saveAs.Text = "&Save As...";
+            this.saveAs.Click += new System.EventHandler(this.saveAs_Click);
             // 
             // menuExit
             // 
             this.menuExit.Name = "menuExit";
-            this.menuExit.Size = new System.Drawing.Size(98, 22);
+            this.menuExit.Size = new System.Drawing.Size(180, 22);
             this.menuExit.Text = "&Exit";
             this.menuExit.Click += new System.EventHandler(this.menuExit_Click);
             // 
@@ -157,6 +186,16 @@
             this.menuSizeLarge.Text = "&Large";
             this.menuSizeLarge.Click += new System.EventHandler(this.OnSizeChnage);
             // 
+            // openFile
+            // 
+            this.openFile.FileName = "openFile";
+            this.openFile.Filter = "Text Files (*.txt)|*.txt";
+            // 
+            // saveAsFile
+            // 
+            this.saveAsFile.FileName = "saveAsFile";
+            this.saveAsFile.Filter = "Text Files (*.txt)|*.txt";
+            // 
             // TextEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -191,5 +230,10 @@
         private ToolStripMenuItem menuSizeSmall;
         private ToolStripMenuItem menuSizeMedium;
         private ToolStripMenuItem menuSizeLarge;
+        private OpenFileDialog openFile;
+        private SaveFileDialog saveAsFile;
+        private ToolStripMenuItem open;
+        private ToolStripMenuItem save;
+        private ToolStripMenuItem saveAs;
     }
 }
